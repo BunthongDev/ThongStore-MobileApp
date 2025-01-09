@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thongstore_users/consts/theme_data.dart';
 import 'package:thongstore_users/providers/theme_provider.dart';
+import 'package:thongstore_users/root_screen.dart';
 import 'package:thongstore_users/screens/home_screen.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           title: 'ThongStore :)',
           theme: Styles.themeData(
               isDarkTheme: themeProvider.getIsDarkTheme, context: context),
-          home: const HomeScreen(),
+          home: const RootScreen(),
         );
       }),
     );
