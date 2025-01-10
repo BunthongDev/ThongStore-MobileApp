@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:thongstore_users/screens/cart/quantity_btm_sheet.dart';
 import 'package:thongstore_users/widgets/subtitle_text.dart';
 import 'package:thongstore_users/widgets/title_text.dart';
+
 
 class CartWidget extends StatelessWidget {
   const CartWidget({super.key});
@@ -71,7 +73,22 @@ class CartWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         OutlinedButton.icon(
-                          onPressed: () {},
+                          onPressed: () async {
+                            await showModalBottomSheet(
+                              backgroundColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30),
+                                ),
+                              ),
+                              context: context,
+                              builder: (context) {
+                                return const QuantityBottomSheetWidget();
+                              },
+                            );
+                          },
                           icon: const Icon(IconlyLight.arrowDown2),
                           label: const Text("Qty: 6"),
                           style: OutlinedButton.styleFrom(
