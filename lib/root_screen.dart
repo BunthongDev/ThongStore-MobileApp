@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:thongstore_users/screens/home_screen.dart';
 import 'package:thongstore_users/screens/profile_screen.dart';
-import 'screens/cart_screen.dart';
+import 'screens/cart/cart_screen.dart';
 import 'screens/search_screen.dart';
 
 class RootScreen extends StatefulWidget {

@@ -24,139 +24,143 @@ class ProfileScreen extends StatelessWidget {
         ),
         title: AppNameTextWidget(),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Visibility(
-            visible: false,
-            child: Padding(
-              padding: EdgeInsets.all(18.0),
-              child: TitlesTextWidget(
-                label: "Please login to have unlimited access",
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Visibility(
+              visible: false,
+              child: Padding(
+                padding: EdgeInsets.all(18.0),
+                child: TitlesTextWidget(
+                  label: "Please login to have unlimited access",
+                ),
               ),
             ),
-          ),
-          Visibility(
-            visible: true,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: Row(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Theme.of(context).cardColor,
-                      border: Border.all(
-                          color: Theme.of(context).colorScheme.background,
-                          width: 3),
-                      image: const DecorationImage(
-                        image: NetworkImage(
-                          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
+            Visibility(
+              visible: true,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Theme.of(context).cardColor,
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.background,
+                            width: 3),
+                        image: const DecorationImage(
+                          image: NetworkImage(
+                            "https://pixabay.com/photos/a-book-embossing-leather-book-cover-3088775/",
+                          ),
+                          fit: BoxFit.fill,
                         ),
-                        fit: BoxFit.fill,
                       ),
                     ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        TitlesTextWidget(label: "BunThong"),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        SubtitleTextWidget(label: "bunthong123@gmail.com")
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Divider(
+                    thickness: 1,
                   ),
                   const SizedBox(
-                    width: 10,
+                    height: 10,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      TitlesTextWidget(label: "BunThong"),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      SubtitleTextWidget(label: "bunthong123@gmail.com")
-                    ],
-                  )
+                  const TitlesTextWidget(
+                    label: "General",
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomListTile(
+                    text: "All Order",
+                    imagePath: AssetsManager.orderSvg,
+                    function: () {},
+                  ),
+                  CustomListTile(
+                    text: "Wishlist",
+                    imagePath: AssetsManager.wishlistSvg,
+                    function: () {},
+                  ),
+                  CustomListTile(
+                    text: "Viewed recently",
+                    imagePath: AssetsManager.recent,
+                    function: () {},
+                  ),
+                  CustomListTile(
+                    text: "Address",
+                    imagePath: AssetsManager.address,
+                    function: () {},
+                  ),
+                  const SizedBox(height: 6),
+                  const Divider(
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 6),
+                  const TitlesTextWidget(
+                    label: "Settings",
+                  ),
+                  const SizedBox(height: 10),
+                  SwitchListTile(
+                    secondary: Image.asset(
+                      AssetsManager.theme,
+                      height: 34,
+                    ),
+                    title: Text(themeProvider.getIsDarkTheme
+                        ? "Dark Mode"
+                        : "Light Mode"),
+                    value: themeProvider.getIsDarkTheme,
+                    onChanged: (value) {
+                      themeProvider.setDarkTheme(themeValue: value);
+                    },
+                  ),
                 ],
               ),
             ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Divider(
-                  thickness: 1,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const TitlesTextWidget(
-                  label: "General",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomListTile(
-                  text: "All Order",
-                  imagePath: AssetsManager.orderSvg,
-                  function: () {},
-                ),
-                CustomListTile(
-                  text: "Wishlist",
-                  imagePath: AssetsManager.wishlistSvg,
-                  function: () {},
-                ),
-                CustomListTile(
-                  text: "Viewed recently",
-                  imagePath: AssetsManager.recent,
-                  function: () {},
-                ),
-                CustomListTile(
-                  text: "Address",
-                  imagePath: AssetsManager.address,
-                  function: () {},
-                ),
-                const SizedBox(height: 6),
-                const Divider(
-                  thickness: 1,
-                ),
-                const SizedBox(height: 6),
-                const TitlesTextWidget(
-                  label: "Settings",
-                ),
-                const SizedBox(height: 10),
-                SwitchListTile(
-                  secondary: Image.asset(
-                    AssetsManager.theme,
-                    height: 34,
-                  ),
-                  title: Text(themeProvider.getIsDarkTheme
-                      ? "Dark Mode"
-                      : "Light Mode"),
-                  value: themeProvider.getIsDarkTheme,
-                  onChanged: (value) {
-                    themeProvider.setDarkTheme(themeValue: value);
-                  },
-                ),
-              ],
-            ),
-          ),
-          Center(
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    30.0,
+            Center(
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      30.0,
+                    ),
                   ),
                 ),
+                onPressed: () {},
+                icon: const Icon(Icons.login),
+                label: const Text("Login"),
               ),
-              onPressed: () {},
-              icon: const Icon(Icons.login),
-              label: const Text("Login"),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
