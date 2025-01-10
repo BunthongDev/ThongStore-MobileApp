@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thongstore_users/screens/cart/bottom_checkout.dart';
 import 'package:thongstore_users/screens/cart/cart_widget.dart';
 import 'package:thongstore_users/services/assets_manager.dart';
 import 'package:thongstore_users/widgets/empty_bag.dart';
@@ -20,6 +21,7 @@ class CartScreen extends StatelessWidget {
             ),
           )
         : Scaffold(
+            bottomSheet: CartBottomSheetWidget(),
             appBar: AppBar(
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
