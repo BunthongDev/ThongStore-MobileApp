@@ -9,6 +9,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import '../../consts/app_constants.dart';
 import '../subtitle_text.dart';
 
+
 class LatestArrivalProductsWidget extends StatelessWidget {
   const LatestArrivalProductsWidget({super.key});
 
@@ -37,7 +38,7 @@ class LatestArrivalProductsWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 5,
+                width: 8,
               ),
               Flexible(
                 child: Column(
@@ -49,6 +50,9 @@ class LatestArrivalProductsWidget extends StatelessWidget {
                       "Title" * 15,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(
+                      height: 5,
                     ),
                     FittedBox(
                       child: Row(
@@ -67,6 +71,9 @@ class LatestArrivalProductsWidget extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                    const SizedBox(
+                      height: 5,
                     ),
                     const FittedBox(
                       child: SubtitleTextWidget(

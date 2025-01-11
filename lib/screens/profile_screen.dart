@@ -22,7 +22,9 @@ class ProfileScreen extends StatelessWidget {
             AssetsManager.shoppingCart,
           ),
         ),
-        title: AppNameTextWidget(),
+        title: AppNameTextWidget(
+          fontSize: 40,
+        ),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
