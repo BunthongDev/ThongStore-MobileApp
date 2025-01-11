@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:provider/provider.dart';
 import 'package:thongstore_users/providers/theme_provider.dart';
+import 'package:thongstore_users/screens/inner_screen/viewed_recently.dart';
+import 'package:thongstore_users/screens/inner_screen/wishlist.dart';
 import 'package:thongstore_users/services/assets_manager.dart';
 import 'package:thongstore_users/widgets/app_name_text.dart';
 import 'package:thongstore_users/widgets/subtitle_text.dart';
@@ -22,9 +23,7 @@ class ProfileScreen extends StatelessWidget {
             AssetsManager.shoppingCart,
           ),
         ),
-        title: AppNameTextWidget(
-          fontSize: 40,
-        ),
+        title: const AppNameTextWidget(fontSize: 20),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -54,11 +53,11 @@ class ProfileScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Theme.of(context).cardColor,
                         border: Border.all(
-                            color: Theme.of(context).colorScheme.background,
+                            color: Theme.of(context).colorScheme.surface,
                             width: 3),
                         image: const DecorationImage(
                           image: NetworkImage(
-                            "https://pixabay.com/photos/a-book-embossing-leather-book-cover-3088775/",
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
                           ),
                           fit: BoxFit.fill,
                         ),
@@ -67,14 +66,14 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        TitlesTextWidget(label: "BunThong"),
+                      children: [
+                        TitlesTextWidget(label: "Bunthong IT_STEP"),
                         SizedBox(
                           height: 6,
                         ),
-                        SubtitleTextWidget(label: "bunthong123@gmail.com")
+                        SubtitleTextWidget(label: "bunthong@step.com")
                       ],
                     )
                   ],
@@ -109,12 +108,17 @@ class ProfileScreen extends StatelessWidget {
                   CustomListTile(
                     text: "Wishlist",
                     imagePath: AssetsManager.wishlistSvg,
-                    function: () {},
+                    function: () {
+                      Navigator.pushNamed(context, WishlistScreen.routName);
+                    },
                   ),
                   CustomListTile(
                     text: "Viewed recently",
                     imagePath: AssetsManager.recent,
-                    function: () {},
+                    function: () {
+                      Navigator.pushNamed(
+                          context, ViewedRecentlyScreen.routName);
+                    },
                   ),
                   CustomListTile(
                     text: "Address",

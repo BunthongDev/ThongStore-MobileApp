@@ -5,6 +5,8 @@ import 'package:thongstore_users/providers/theme_provider.dart';
 import 'package:thongstore_users/root_screen.dart';
 import 'package:thongstore_users/screens/home_screen.dart';
 import 'package:thongstore_users/screens/inner_screen/product_details.dart';
+import 'package:thongstore_users/screens/inner_screen/viewed_recently.dart';
+import 'package:thongstore_users/screens/inner_screen/wishlist.dart';
 
 
 void main() {
@@ -32,6 +34,9 @@ class MyApp extends StatelessWidget {
           routes: {
             ProductDetailsScreen.routName: (context) =>
                 const ProductDetailsScreen(),
+            WishlistScreen.routName: (context) => const WishlistScreen(),
+            ViewedRecentlyScreen.routName: (context) =>
+                const ViewedRecentlyScreen(),
           },
         );
       }),
