@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:thongstore_users/consts/app_constants.dart';
 import 'package:thongstore_users/screens/cart/quantity_btm_sheet.dart';
+import 'package:thongstore_users/widgets/products/heart_btn.dart';
 import 'package:thongstore_users/widgets/subtitle_text.dart';
 import 'package:thongstore_users/widgets/title_text.dart';
 
@@ -24,8 +26,7 @@ class CartWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
                 child: FancyShimmerImage(
-                  imageUrl:
-                      'https://i.ibb.co/8r1Ny2n/20-Nike-Air-Force-1-07.png',
+                  imageUrl: AppConstants.imageUrl,
                   height: size.height * 0.2,
                   width: size.height * 0.2,
                 ),
@@ -54,12 +55,7 @@ class CartWidget extends StatelessWidget {
                                 color: Colors.red,
                               ),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                IconlyLight.heart,
-                              ),
-                            ),
+                            const HeartButtonWidget(),
                           ],
                         ),
                       ],

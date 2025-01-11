@@ -4,6 +4,8 @@ import 'package:thongstore_users/consts/theme_data.dart';
 import 'package:thongstore_users/providers/theme_provider.dart';
 import 'package:thongstore_users/root_screen.dart';
 import 'package:thongstore_users/screens/home_screen.dart';
+import 'package:thongstore_users/screens/inner_screen/product_details.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -23,10 +25,14 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(
-          title: 'ThongStore :)',
+          title: 'ShopSmart EN',
           theme: Styles.themeData(
               isDarkTheme: themeProvider.getIsDarkTheme, context: context),
           home: const RootScreen(),
+          routes: {
+            ProductDetailsScreen.routName: (context) =>
+                const ProductDetailsScreen(),
+          },
         );
       }),
     );

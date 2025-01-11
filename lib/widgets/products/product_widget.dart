@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:thongstore_users/screens/inner_screen/product_details.dart';
+import 'package:thongstore_users/widgets/products/heart_btn.dart';
 import 'package:thongstore_users/widgets/subtitle_text.dart';
 import 'package:thongstore_users/widgets/title_text.dart';
 
@@ -24,8 +26,8 @@ class _ProductWidgetState extends State<ProductWidget> {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: GestureDetector(
-        onTap: () {
-          log("ToDo add the navigate to the product details screen");
+        onTap: () async {
+          await Navigator.pushNamed(context, ProductDetailsScreen.routName);
         },
         child: Column(
           children: [
@@ -52,12 +54,9 @@ class _ProductWidgetState extends State<ProductWidget> {
                       maxLines: 2,
                     ),
                   ),
-                  Flexible(
+                  const Flexible(
                     flex: 2,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(IconlyLight.heart),
-                    ),
+                    child: HeartButtonWidget(),
                   ),
                 ],
               ),
@@ -85,7 +84,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(12.0),
                         onTap: () {},
-                        splashColor: Colors.green,
+                        splashColor: Colors.red,
                         child: const Padding(
                           padding: EdgeInsets.all(6.0),
                           child: Icon(
