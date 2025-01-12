@@ -5,6 +5,7 @@ import 'package:thongstore_users/providers/theme_provider.dart';
 import 'package:thongstore_users/screens/inner_screen/viewed_recently.dart';
 import 'package:thongstore_users/screens/inner_screen/wishlist.dart';
 import 'package:thongstore_users/services/assets_manager.dart';
+import 'package:thongstore_users/services/my_app_functions.dart';
 import 'package:thongstore_users/widgets/app_name_text.dart';
 import 'package:thongstore_users/widgets/subtitle_text.dart';
 import '../widgets/title_text.dart';
@@ -53,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Theme.of(context).cardColor,
                         border: Border.all(
-                            color: Theme.of(context).colorScheme.surface,
+                            color: Theme.of(context).colorScheme.background,
                             width: 3),
                         image: const DecorationImage(
                           image: NetworkImage(
@@ -69,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TitlesTextWidget(label: "Bunthong IT_STEP"),
+                        TitlesTextWidget(label: "Bunthong IT STEP"),
                         SizedBox(
                           height: 6,
                         ),
@@ -160,9 +161,15 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
                 icon: const Icon(Icons.login),
                 label: const Text("Login"),
+                onPressed: () async {
+                  await MyAppFunctions.showErrorOrWarningDialog(
+                      context: context,
+                      subtitle: "Are you sure you want to signout",
+                      fct: () {},
+                      isError: false);
+                },
               ),
             ),
           ],
